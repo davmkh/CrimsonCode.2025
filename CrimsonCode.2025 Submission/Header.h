@@ -2,8 +2,8 @@
 #ifndef Header_h
 #define Header_h
 #define _CRT_SECURE_NO_WARNINGS
-#define MaxNumOperators 2 // maximum # of operators for level1 function
-#define MaxFileLinesLength 1000 // maximum # lines in file
+#define MaxNumOperators 2 // maximum # of operators for level1() function
+#define MaxFileLinesLength 110 // maximum # lines in file
 #define NumOfLines4 106 // amount of level 4 file equations
 #define NumOfLines5 98 // amount of level 5 file equations
 
@@ -17,14 +17,14 @@
 #include <time.h>
 #include <string.h>
 
-// Structs + Function Decleration (using long long data types for memory reasons, learned this from my step-dad)
+// Structs + Function Decleration 
 typedef struct profile
 {
 	long long score;
 	long long correct;
 	long long incorrect;
 	char name[4]; // 4 for null char
-}Profile;
+} Profile;
 
 // Regular Functions
 void menu(void);
