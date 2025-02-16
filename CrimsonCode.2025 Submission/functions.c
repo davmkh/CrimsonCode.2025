@@ -683,7 +683,11 @@ void achievements(Profile* p1)
 	printf("\t\t\t\t\t\tACHIEVEMENTS\n\n");
 
 	// achievement conditionals
-	if (p1->correct <= 10 && p1->correct < 80)
+	if (p1->correct < 10)
+	{
+		printf("%s1. ???\n2. ???\n3. ???\n4. ???\n5. ???\n\n%s", RED, WHITE);
+	}
+	if (p1->correct >= 10 && p1->correct < 80)
 	{
 		bronze = TRUE;
 		printf("%s1. Bronze - 10 Correct Answers%s\n2. ???\n3. ???\n4. ???\n5. ???\n\n%s", GREEN, RED, WHITE);
@@ -714,4 +718,9 @@ void achievements(Profile* p1)
 	system("pause");
 	system("cls");
 	menu();
+}
+
+void asciiArt(void)
+{
+
 }
