@@ -24,7 +24,8 @@ void menu(void)
 		printf("\n\t\t                                    > 4. Stats");
 		printf("\n\t\t                                    > 5. Tutorials");
 		printf("\n\t\t                                    > 6. Save");
-		printf("\n\t\t                                    > 7. Exit");
+		printf("\n\t\t                                    > 7. Achievements");
+		printf("\n\t\t                                    > 8. Exit");
 		printf("\n\t\t\t-----------------------------------------------------------------------------\n");
 		scanf("%d", &menu_choice);
 
@@ -58,6 +59,12 @@ void menu(void)
 			fclose(outfile);
 			break;
 		case 7:
+			printf("\n\t\t\t\tYou have decided to view your achievements.\n");
+			printf("\t\t\t\t---------------------------------------------- \n\n");
+			system("pause");
+			system("cls");
+			achievements(&p1);
+		case 8:
 			printf("\nGoodbye!\n\n");
 			exit = 1;
 			break;
@@ -71,7 +78,7 @@ void menu(void)
 
 void how_to_play(void)
 {
-	// Note: I looked up how to change the colors. The chunk of lines from 42-46 are copy paste. 
+	// Note: We looked up how to change the colors. The chunk of lines from 42-46 are copy paste. 
 	const char* WHITE = "\033[0m";
 	const char* GREEN = "\033[0;32m";
 	const char* BLUE = "\033[0;34m";
@@ -619,7 +626,6 @@ void stats(Profile* p1)
 	printf("\t\t\t\t--------------------------------------------------------------\n");
 	printf("\t\t\t\t|      C/I Ratio      |                %.1lf                   |\n", ratio);
 	printf("\t\t\t\t--------------------------------------------------------------\n");
-	printf("\t\t\n\nNote to Andy: If there are unusual values here, it is because they carried over from testing.\n");
 	system("pause");
 	system("cls");
 	menu();
@@ -659,6 +665,13 @@ void setname(Profile* p1)
 // Added 2/16/25
 void achievements(Profile* p1)
 {
+	// colors
+	const char* WHITE = "\033[0m";
+	const char* GREEN = "\033[0;32m";
+	const char* BLUE = "\033[0;34m";
+	const char* RED = "\033[0;31m";
+	const char* PURPLE = "\033[0;35m";
+
 	// achievement names
 	int bronze = FALSE;
 	int silver = FALSE;
@@ -666,29 +679,39 @@ void achievements(Profile* p1)
 	int diamond = FALSE;
 	int master = FALSE;
 
+	// achievement title
+	printf("\t\t\t\t\t\tACHIEVEMENTS\n\n");
+
 	// achievement conditionals
 	if (p1->correct <= 10 && p1->correct < 80)
 	{
 		bronze = TRUE;
+		printf("%s1. Bronze - 10 Correct Answers%s\n2. ???\n3. ???\n4. ???\n5. ???\n\n%s", GREEN, RED, WHITE);
 	}
-	else if (p1->correct >= 80 && p1->correct < 150)
+	if (p1->correct >= 80 && p1->correct < 150)
 	{
 		silver = TRUE;
-		bronze = FALSE;
+		printf("%s1. Bronze - 10 Correct Answers\n2. Silver - 80 Correct Answers%s\n3. ???\n4. ???\n5. ???\n\n%s", GREEN, RED, WHITE);
 	}
-	else if (p1->correct >= 150 && p1->correct < 300)
+	if (p1->correct >= 150 && p1->correct < 300)
 	{
 		gold = TRUE;
-		silver = FALSE;
+		printf("%s1. Bronze - 10 Correct Answers\n2. Silver - 80 Correct Answers\n3. Gold - 150 Correct Answers%s\n4. ???\n5. ???\n\n%s", GREEN, RED, WHITE);
 	}
-	else if (p1->correct >= 300 && p1->correct < 500)
+	if (p1->correct >= 300 && p1->correct < 500)
 	{
 		diamond = TRUE;
-		gold = FALSE;
+		printf("%s1. Bronze - 10 Correct Answers\n2. Silver - 80 Correct Answers\n3. Gold - 150 Correct Answers\n"
+			"4. Diamond - 300 Correct Answers%s\n5. ???\n\n%s", GREEN, RED, WHITE);
 	}
-	else
+	if (p1->correct >= 500)
 	{
 		master = TRUE;
-		diamond = FALSE;
+		printf("%s1. Bronze - 10 Correct Answers\n2. Silver - 80 Correct Answers\n3. Gold - 150 Correct Answers\n"
+			"4. Diamond - 300 Correct Answers\n5. Master - 500 Correct Answers%s\n\n%s", GREEN, RED, WHITE);
+
 	}
+	system("pause");
+	system("cls");
+	menu();
 }
