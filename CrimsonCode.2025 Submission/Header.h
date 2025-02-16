@@ -7,6 +7,10 @@
 #define NumOfLines4 106 // amount of level 4 file equations
 #define NumOfLines5 98 // amount of level 5 file equations
 
+// Custom booleans
+#define TRUE 1 
+#define FALSE 0
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -31,7 +35,8 @@ void stats(Profile* p1);
 void save_stats(Profile* p1, const char* infile);
 void load_stats(Profile* p1, const char* infile);
 void setname(Profile* p1);
-void achievements(Profile* p1);
+void achievements(Profile* p1); // added after 2.15.25
+void gallery(Profile* p1); //       ^^^
 
 // Level functions
 void level1(Profile* p1);

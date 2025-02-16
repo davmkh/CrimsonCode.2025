@@ -655,3 +655,13 @@ void setname(Profile* p1)
 	printf("Please enter 3 initials for your name (ex. Dav): ");
 	scanf("%s", p1->name);
 }
+
+// Added 2/16/25
+void achievements(Profile* p1)
+{
+	// achievement names
+	if (p1->correct >= 10)
+	{
+
+	}
+}
