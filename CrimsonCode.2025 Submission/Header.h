@@ -31,6 +31,7 @@ void stats(Profile* p1);
 void save_stats(Profile* p1, const char* infile);
 void load_stats(Profile* p1, const char* infile);
 void setname(Profile* p1);
+void achievements(Profile* p1);
 
 // Level functions
 void level1(Profile* p1);
