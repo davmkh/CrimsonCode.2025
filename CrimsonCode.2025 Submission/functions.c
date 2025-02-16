@@ -660,8 +660,35 @@ void setname(Profile* p1)
 void achievements(Profile* p1)
 {
 	// achievement names
-	if (p1->correct >= 10)
-	{
+	int bronze = FALSE;
+	int silver = FALSE;
+	int gold = FALSE;
+	int diamond = FALSE;
+	int master = FALSE;
 
+	// achievement conditionals
+	if (p1->correct <= 10 && p1->correct < 80)
+	{
+		bronze = TRUE;
+	}
+	else if (p1->correct >= 80 && p1->correct < 150)
+	{
+		silver = TRUE;
+		bronze = FALSE;
+	}
+	else if (p1->correct >= 150 && p1->correct < 300)
+	{
+		gold = TRUE;
+		silver = FALSE;
+	}
+	else if (p1->correct >= 300 && p1->correct < 500)
+	{
+		diamond = TRUE;
+		gold = FALSE;
+	}
+	else
+	{
+		master = TRUE;
+		diamond = FALSE;
 	}
 }
